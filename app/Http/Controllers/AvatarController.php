@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Avatar;
 use Illuminate\Http\Request;
-use App\User;
 
-class UserController extends Controller
+class AvatarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        
+        $avatars = Avatar::all();
 
-        foreach($users as $user) {
-            $rand = rand(0, count($user->posts) -1);
-            dd($user->posts[$rand]);
-             dd($user->avatar->path);
-        //     //dd($user->avatar);
-
-        }   
-        return view('index', compact('users'));
+        foreach ($avatars as $avatar) {
+            dd($avatar->user());
+        }
     }
 
     /**
@@ -56,8 +50,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        dd($id);
-
+        //
     }
 
     /**

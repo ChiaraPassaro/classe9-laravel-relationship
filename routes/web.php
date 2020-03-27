@@ -18,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', 'UserController@index')->name('users.index');
+
+Route::get('/users/{user}', 'UserController@show')->name('users.show');
+
+Route::get('/avatars', 'AvatarController@index')->name('avatars.index');
+
+Route::resource('photos', 'PhotoController');
